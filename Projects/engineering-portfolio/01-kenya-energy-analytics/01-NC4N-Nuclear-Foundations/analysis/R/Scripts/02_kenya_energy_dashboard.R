@@ -11,6 +11,7 @@ library(plotly)
 library(scales)
 library(ggthemes)
 library(DT)  # For interactive tables
+library(markdown)  # For including markdown files
 
 # 2. Load Data -------------------------------
 df <- read_csv("C:/Users/user/Desktop/Programming/Projects/engineering-portfolio/01-kenya-energy-analytics/01-NC4N-Nuclear-Foundations/data/raw/electricity-prod-source-stacked.csv")
@@ -54,7 +55,6 @@ df_clean <- df %>%
 kenya <- df_clean %>% filter(country == "Kenya")
 current_year <- max(kenya$year)
 
-# --- THIS IS THE FIX YOU NEED ---
 # Calculate current mix with proper leading source identification
 current_mix <- kenya %>%
   filter(year == current_year) %>%
@@ -80,7 +80,7 @@ current_mix <- kenya %>%
     )
   )
 
-# --- DYNAMIC LEADING SOURCE (YOUR FIX) ---
+# Dynamic leading source
 leading_idx <- which.max(current_mix$share)
 leading_source <- current_mix$source[leading_idx]
 leading_share <- round(current_mix$share[leading_idx], 1)
@@ -96,7 +96,8 @@ ui <- dashboardPage(
       menuItem("Generation Trends", tabName = "trends", icon = icon("chart-line")),
       menuItem("Energy Mix", tabName = "mix", icon = icon("pie-chart")),
       menuItem("Nuclear Comparison", tabName = "nuclear", icon = icon("atom")),
-      menuItem("Scenario Analysis", tabName = "scenarios", icon = icon("microscope"))
+      menuItem("Scenario Analysis", tabName = "scenarios", icon = icon("microscope")),
+      menuItem("About", tabName = "about", icon = icon("info-circle"))
     )
   ),
   
@@ -256,6 +257,20 @@ ui <- dashboardPage(
             status = "success",
             width = 8,
             htmlOutput("scenario_results")
+          )
+        )
+      ),
+      
+      # About Tab
+      tabItem(
+        tabName = "about",
+        fluidRow(
+          box(
+            title = "About This Dashboard",
+            status = "primary",
+            solidHeader = TRUE,
+            width = 12,
+            includeMarkdown("about.Rmd")
           )
         )
       )
