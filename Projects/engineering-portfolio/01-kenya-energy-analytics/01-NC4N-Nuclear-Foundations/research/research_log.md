@@ -52,10 +52,11 @@ Today established the foundation of the project by defining the engineering ques
 Today shifted from project setup to implementation by building the first interactive analytical tool. The dashboard provides a foundation for exploring electricity generation trends and will evolve as additional engineering analyses are completed.
 
 ### Next Session
-Investigate dashboard Kenya vs Nuclear operating countries
-Download EPRA electricity statistics (2010-2025)
-Download KenGen annual reports
-Create import scripts for all data
-Clean and standardize variables
-Generate data quality report
-Create capacity vs. generation visualizations
+- Investigate dashboard Kenya vs Nuclear operating countries
+- Contact details (About tab)
+- Download EPRA electricity statistics (2010-2025)
+- Download KenGen annual reports
+- Create import scripts for all data
+- Clean and standardize variables
+- Generate data quality report
+- Create capacity vs. generation visualizations

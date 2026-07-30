@@ -18,7 +18,7 @@ This dashboard uses data from **Our World in Data** - "Electricity production by
 
 This dashboard was created as part of the NC4N Nuclear Foundations project to analyze Kenya's electricity generation mix and assess nuclear energy readiness.
 
-### Key Questions Addressed
+### Engineering research questions
 
 1. How has Kenya's electricity generation changed between 1985-2025?
 2. Which technologies contribute most to Kenya's energy mix?
